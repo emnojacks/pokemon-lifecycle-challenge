@@ -57,7 +57,8 @@ class PokeFetch extends Component {
     
     // Check if we're at zero.
     if (seconds === 0) { 
-      clearInterval(this.timer);
+      clearInterval(this.timer)
+      this.displayPoke();
     }
   }
   
@@ -78,6 +79,13 @@ class PokeFetch extends Component {
       .catch((err) => console.log(err))
   }
   
+  displayPoke() {
+    let pokemonImage = document.getElementById('pokeImg');
+    let pokemonName = document.getElementById('pokeName');
+    console.log(pokemonName);
+    pokemonName.style.visibility = "visible";
+    pokemonImage.style.filter = "brightness(100%)";
+  }
   
   render() {
     return (
@@ -89,8 +97,12 @@ class PokeFetch extends Component {
         </h1>
         
         <div className={'pokeWrap'}>
-          <img className={'pokeImg'} src={this.state.pokeSprite} />
-          <h1 className={'pokeName'}>{this.state.pokeName}</h1>
+          <img id={'pokeImg'}
+            src={this.state.pokeSprite} />
+          
+          <h1 id={'pokeName'}>
+            {this.state.pokeName}
+          </h1>
         </div>
       </div>
     )
