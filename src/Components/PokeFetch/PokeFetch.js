@@ -55,7 +55,7 @@ class PokeFetch extends Component {
       seconds: seconds,
     });
     
-    // Check if we're at zero.
+    // Check if at zero.
     if (seconds === 0) { 
       clearInterval(this.timer)
       this.displayPoke();
@@ -86,6 +86,7 @@ class PokeFetch extends Component {
     pokemonName.style.visibility = "visible";
     pokemonImage.style.filter = "brightness(100%)";
   }
+  
   
   render() {
     return (
